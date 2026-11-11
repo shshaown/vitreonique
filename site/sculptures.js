@@ -20,7 +20,7 @@ for(const host of document.querySelectorAll('[data-sculpture]')){
   for(let i=0;i<18;i++){let phi=Math.acos(1-2*(i+.5)/18),theta=i*2.399;let v=new T.Vector3(Math.sin(phi)*Math.cos(theta),Math.cos(phi),Math.sin(phi)*Math.sin(theta));let m=add(new T.OctahedronGeometry(.27),i%3?pearl:mint,v.clone().multiplyScalar(1.5).toArray());m.userData.vector=v;}
  }
  let visible=false,px=0,py=0,last=0,time=0;const observer=new IntersectionObserver(entries=>{visible=entries[0].isIntersecting;if(visible){last=0;requestAnimationFrame(render)}},{rootMargin:'120px'});observer.observe(host);
- const resize=()=>{let w=host.clientWidth,h=host.clientHeight;renderer.setSize(w,h);camera.aspect=w/h;camera.updateProjectionMatrix()};new ResizeObserver(resize).observe(host);resize();
+ const resize=()=>{let w=host.clientWidth,h=host.clientHeight;renderer.setSize(w,h);camera.aspect=w/h;camera.position.z=7*Math.max(1,.85/camera.aspect);camera.updateProjectionMatrix()};new ResizeObserver(resize).observe(host);resize();
  host.addEventListener('pointermove',e=>{let r=host.getBoundingClientRect();px=(e.clientX-r.left)/r.width-.5;py=(e.clientY-r.top)/r.height-.5});host.addEventListener('pointerleave',()=>{px=py=0});
  function render(now){if(!visible)return;let dt=last?Math.min((now-last)/1000,.05):0;last=now;if(!reduce.matches)time+=dt;group.rotation.y=time*.19+px*.3;group.rotation.x=.2+py*.2;group.position.y=reduce.matches?0:Math.sin(time*.7)*.1;if(type==='stack')for(let m of parts)if(m.userData.level!==undefined)m.position.x=Math.sin(time*.8+m.userData.level*.5)*.16;if(type==='burst')for(let m of parts)if(m.userData.vector)m.position.copy(m.userData.vector).multiplyScalar(1.5+Math.sin(time*.7)*.15);camera.lookAt(0,0,0);renderer.render(scene,camera);requestAnimationFrame(render)}
 }

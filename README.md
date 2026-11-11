@@ -1,6 +1,6 @@
 # Vitreonique
 
-A personal interactive design portfolio by Sajjad Hossen Shaown. Independent of Aliq and other business accounts.
+A personal interactive design portfolio by Sajjad Hossen Shaown. A standalone personal project.
 
 Six pages: home, work, case study, studio, contact, and the interactive 3D experience. Includes a custom 404 page.
 
