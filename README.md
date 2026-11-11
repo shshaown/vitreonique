@@ -8,11 +8,13 @@ Six pages: home, work, case study, studio, contact, and the interactive 3D exper
 
 Run `python3 -m http.server 8766 --directory site` and open http://localhost:8766.
 
-No build step or package installation is needed. Three.js is vendored with its MIT license. Fonts load from Google Fonts, with system fallbacks.
+No build step or package installation is needed. Additional live 3D studies appear on the home, studio, and contact pages. Scroll reveals and hover animations respect reduced-motion preferences.
+
+Three.js is vendored with its MIT license. Fonts load from Google Fonts, with system fallbacks.
 
 ## Deployment
 
-GitHub Pages deploys the `site` folder through `.github/workflows/pages.yml`. Repository visibility must remain **private**; the website is intended to be **public**. GitHub must support Pages for private repositories on this account’s plan.
+GitHub Pages deploys the `site` folder through `.github/workflows/pages.yml`. The repository and GitHub Pages website are public, as authorized by the owner. Pushes to main deploy the site automatically.
 
 ## Content
 
