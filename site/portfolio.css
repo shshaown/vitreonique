@@ -3,3 +3,4 @@
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
 
 .wordmark{font-size:23px;letter-spacing:2px}@media(max-width:600px){.wordmark{font-size:17px;letter-spacing:1px}.wordmark span{font-size:5px;letter-spacing:.7px}}
+@media(max-width:600px){.contact-layout h1{font-size:60px}.contact-layout>*{min-width:0}.contact-email{max-width:100%}}
